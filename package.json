@@ -1,0 +1,35 @@
+{
+  "name": "heyo",
+  "version": "1.0.0",
+  "description": "Text a birthday note to your friends.",
+  "main": "run.js",
+  "scripts": {
+    "dev": "node-debug run.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matthew Bramer",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.5.2",
+    "bluebird": "^3.3.4",
+    "bunyan": "^1.7.1",
+    "get-folder-size": "^1.0.0",
+    "google-auth-library": "^0.9.7",
+    "googleapis": "^2.1.7",
+    "lodash": "^4.6.1",
+    "request": "^2.69.0",
+    "request-promise": "^2.0.1"
+  },
+  "devDependencies": {
+    "node-inspector": "^0.12.7",
+    "nodemon": "^1.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iOnline247/heyo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iOnline247/heyo/issues"
+  },
+  "homepage": "https://github.com/iOnline247/heyo#readme"
+}
