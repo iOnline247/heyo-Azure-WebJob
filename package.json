@@ -10,7 +10,6 @@
   "author": "Matthew Bramer",
   "license": "MIT",
   "dependencies": {
-    "async": "^1.5.2",
     "bluebird": "^3.3.4",
     "bunyan": "^1.7.1",
     "get-folder-size": "^1.0.0",
