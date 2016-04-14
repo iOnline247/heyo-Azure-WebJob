@@ -28,6 +28,8 @@ const users = db.get('users');
 const Promise = require('bluebird');
 const _ = require('lodash');
 const winston = require('winston');
+let logId;
+// https://github.com/winstonjs/winston/blob/master/docs/transports.md#file-transport
 const logger = new (winston.Logger)({
 	transports: [
 		new (winston.transports.File)({
@@ -54,6 +56,7 @@ const cuid = require('cuid');
 
 
 function init() {
+	logId = cuid();
 	main()
 		.catch(function() {
 			// TODO:
@@ -66,16 +69,60 @@ function init() {
 }
 
 function main() {
-	const logId = cuid();
+	return getUsers()
+		.then(getUserType)
+		.then(birthdayQuery)
+		.then(sendGreetings);
+
+	// Connect to database and get users.
+	// loop through users and determine which type of auth used.
+	// Query calendar/FB API for birthdays.
+	// Post a text or timeline update if birthday found and timestamp is greater than or eq.
+	//
+}
+
+function getUsers() {
 	return new Promise(function(resolve, reject) {
-		logger.info('Hello world!', {logId: logId});
-		logger.info('main() invoked', {logId: logId});
-		resolve();
+
+		users.find({}, function (err, data) {
+			debugger;
+			if (err) {
+				let error = new Error('Cannot connect to database');
+				error.details = err;
+				reject(err);
+			}
+
+			logger.info('Found ' + data.length + ' users', {logId: logId});
+			resolve(data);
+		});
 	});
 }
 
-init();
+function getUserType(users) {
+	return new Promise(function(resolve, reject) {
+		// TODO:
+		// Implement.
+		resolve();
+	})
+}
 
+function birthdayQuery(users) {
+	return new Promise(function(resolve, reject) {
+		// TODO:
+		// Implement.
+		resolve();
+	})
+}
+
+function sendGreetings(users) {
+	return new Promise(function(resolve, reject) {
+		// TODO:
+		// Implement.
+		resolve();
+	})
+}
+
+init();
 
 
 // Catch unhandled errors
